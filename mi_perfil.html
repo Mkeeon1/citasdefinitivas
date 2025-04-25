@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            margin: 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 30px;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #555;
+            font-weight: bold;
+        }
+
+        td {
+            color: #555;
+        }
+
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi Perfil</h1>
+    <table>
+        <tr>
+            <th>Nombre:</th>
+            <td>{{ perfil[0] }}</td>
+        </tr>
+        <tr>
+            <th>Apellido:</th>
+            <td>{{ perfil[1] }}</td>
+        </tr>
+        <tr>
+            <th>Teléfono:</th>
+            <td>{{ perfil[2] }}</td>
+        </tr>
+        <tr>
+            <th>Correo:</th>
+            <td>{{ perfil[3] }}</td>
+        </tr>
+        <tr>
+            <th>RH:</th>
+            <td>{{ perfil[4] }}</td>
+        </tr>
+        <tr>
+            <th>Sexo:</th>
+            <td>{{ perfil[5] }}</td>
+        </tr>
+    </table>
+    <a href="{{ url_for('user_menu') }}">Volver al menú</a>
+</body>
+</html>

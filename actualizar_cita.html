@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Cita</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type="datetime-local"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a4e69;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #22223b;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #4a4e69;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Actualizar Cita</h1>
+        <form method="POST">
+            <label for="fecha">Nueva Fecha:</label>
+            <input type="datetime-local" id="fecha" name="fecha" value="{{ cita[2] }}" required>
+
+            <label for="cubiculo">Nuevo Cubículo:</label>
+            <input type="text" id="cubiculo" name="cubiculo" value="{{ cita[3] }}" required>
+
+            <label for="estado">Nuevo Estado:</label>
+            <select id="estado" name="estado" required>
+                <option value="Disponible" {% if cita[4] == 'Disponible' %}selected{% endif %}>Disponible</option>
+                <option value="Ocupado" {% if cita[4] == 'Ocupado' %}selected{% endif %}>Ocupado</option>
+                <option value="Cancelado" {% if cita[4] == 'Cancelado' %}selected{% endif %}>Cancelado</option>
+            </select>
+
+            <button type="submit">Actualizar</button>
+        </form>
+        <a href="{{ url_for('doctor_menu') }}">Volver al menú</a>
+    </div>
+</body>
+</html>

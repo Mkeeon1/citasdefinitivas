@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Órdenes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            margin: 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #555;
+            font-weight: bold;
+        }
+
+        td {
+            color: #555;
+        }
+
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mis Órdenes</h2>
+    {% if ordenes_activas or ordenes_usadas %}
+        {% if ordenes_activas %}
+            <h3>Órdenes Activas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número de Orden</th>
+                        <th>Especialidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for orden in ordenes_activas %}
+                    <tr>
+                        <td>{{ orden[0] }}</td>
+                        <td>{{ orden[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        
+        {% if ordenes_usadas %}
+            <h3>Órdenes Usadas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número de Orden</th>
+                        <th>Especialidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for orden in ordenes_usadas %}
+                    <tr>
+                        <td>{{ orden[0] }}</td>
+                        <td>{{ orden[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% else %}
+        <p>No tienes órdenes asignadas.</p>
+    {% endif %}
+    <a href="{{ url_for('user_menu') }}">Regresar al Menú</a>
+</body>
+</html>

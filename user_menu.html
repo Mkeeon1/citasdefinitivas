@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú del Paciente</title>
+    <style>
+        /* Estilo global del cuerpo */
+        body {
+            font-family: 'Arial', sans-serif; /* Fuente general */
+            background-color: #f4f6f9; /* Fondo suave */
+            color: #333; /* Color del texto */
+            text-align: center; /* Centrar el contenido */
+            padding: 20px;
+        }
+
+        /* Estilo para el encabezado "Bienvenido" */
+        h1 {
+            font-size: 2.5rem; /* Tamaño de fuente grande */
+            color: #3498db; /* Color azul para hacer que resalte */
+            margin-bottom: 20px; /* Espacio debajo del encabezado */
+            font-weight: bold; /* Negrita */
+        }
+
+        /* Estilo para el texto "Seleccione una opción" */
+        p {
+            font-size: 1.2rem; /* Tamaño de fuente agradable */
+            color: #2c3e50; /* Color gris oscuro para el texto */
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        /* Estilo global para los botones */
+        button {
+            width: 100%; /* El botón tomará todo el ancho disponible */
+            padding: 12px 20px;
+            background-color: white; /* Fondo blanco */
+            color: #3498db; /* Texto azul */
+            border: 2px solid #3498db; /* Borde azul */
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px auto; /* Margen automático para centrar */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza el cambio de color */
+        }
+
+        /* Efecto hover para los botones */
+        button:hover {
+            background-color: #3498db; /* Fondo azul */
+            color: white; /* Texto blanco */
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido, {{ username }}</h1> <!-- Título mejorado -->
+    <p>Seleccione una opción:</p> <!-- Texto mejorado -->
+    <form method="POST">
+        <button type="submit" name="option" value="1">1. Agendar cita</button><br>
+        <button type="submit" name="option" value="2">2. Ver citas</button><br>
+        <button type="submit" name="option" value="3">3. Cancelar citas</button><br>
+        <button type="submit" name="option" value="4">4. Mi perfil</button><br>
+        <!-- Opción 5 convertida en botón -->
+        <button type="submit" name="option" value="5">5. Mis Órdenes</button><br>
+        <button type="submit" name="option" value="6">6. Salir</button>
+    </form>
+</body>
+</html>

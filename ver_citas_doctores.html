@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas Médicas Asignadas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        td {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Citas Médicas Asignadas</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cita</th>
+                <th>Fecha</th>
+                <th>Cubículo</th>
+                <th>Estado</th>
+                <th>Doctor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cita in citas %}
+            <tr>
+                <td>{{ cita[0] }}</td> <!-- ID Cita -->
+                <td>{{ cita[1] }}</td> <!-- Fecha -->
+                <td>{{ cita[2] }}</td> <!-- Cubículo -->
+                <td>{{ cita[3] }}</td> <!-- Estado -->
+                <td>{{ cita[4] }}</td> <!-- Doctor -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('doctor_menu') }}" class="button">Volver al Menú</a>
+
+</body>
+</html>
